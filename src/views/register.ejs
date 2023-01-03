@@ -1,0 +1,91 @@
+<! DOCTYPE html>
+<html lang="es">
+
+<% si (locales. usuario) { %>
+  <body style ""<%= locals.usuario.color %>>
+<% } más { %>
+  <cuerpo>
+	<% } %> 
+	<%- include('./partials/head',{ título: 'Registro' }) %>
+
+		<%- include('./partials/header') %>
+			<principal>
+				<% si (locales. usuario) { %>
+  <h3>Hola <%= locales. usuario. name %>, elegiste el color: <%= locales. usuario. color %>, tu email es:
+  <%= locales. usuario. email %> y tu edad es <%= locales. usuario. edad %>
+					</h3>
+  <form action="/user/destroy" method="post">
+						<div class="col-12">
+  <button type="submit" class="btn btn-primary">Eliminar color</button>
+						</div>
+  </formulario>
+					<% } más {%>
+  <h1>Registrar:</h1>
+  <form action="/user/register" method="post">
+							<div class="col-12">
+  <label for="name" class="form-label">Ingrese su nombre</label>
+  <input type="text" name="name" class="form-control" id="name"
+ placeholder="Cosme Fulanito" value=<%=(locales. viejo y viejo. nombre) ?  viejo. Nombre : null %>
+								>
+  <pequeño>
+  <%= (locales. errores y errores. nombre) ?  errores. nombre. msg : 'Este campo es obligatorio'
+										%>
+  </pequeño>
+							</div>
+							<div class="col-12">
+  <label for="color" class="form-label">Seleccione un color de su agrado</label>
+  <select id="color" name="color" class="form-select">
+  <option value="" seleccionado oculto>Elegir... </opción>
+  <option value="gray" <%=(locales. viejo y viejo. color==='gris' ) ?  'selected' : null %>
+  > Gris
+  </opción>
+  <option value="white" <%=(locales. viejo y viejo. color==='blanco' ) ?  'selected' : null %>
+  > Blanco</opción>
+  <option value="orange" <%=(locales. viejo y viejo. color==='naranja' ) ?  'seleccionado' : null
+										%>
+  > Negro</opción>
+  </seleccionar>
+  <pequeño>
+  <%= (locales. errores y errores. color) ?  errores. color. msg : 'Este campo es obligatorio'
+										%>
+  </pequeño>
+							</div>
+							<div class="col-12">
+  <label for="email" class="form-label">Ingrese su email</label>
+  <input type="text" name="email" class="form-control" id="email"
+ placeholder="email@email.com" value=<%=(locales. viejo y viejo. correo electrónico) ?  viejo. Correo electrónico : null
+									%>>
+  <pequeño>
+  <%= (locales. errores y errores. correo electrónico) ?  errores. correo electrónico. msg : 'Este campo es obligatorio'
+										%>
+  </pequeño>
+							</div>
+							<div class="col-12">
+  <label for="edad" class="form-label">Ingrese su edad</label>
+  <input type="text" name="edad" class="form-control" id="edad" placeholder="30"
+ value=<%=(locales. viejo y viejo. edad) ?  viejo. edad : null %>>
+  <pequeño>
+  <%= (locales. errores y errores. edad) ?  errores. edad. msg : 'Este campo es obligatorio'
+										%>
+  </pequeño>
+							</div>
+							<div class="col-12">
+								<div class="form-check">
+  <input class="form-check-input" name="recordar" type="checkbox" id="gridCheck">
+  <label class="form-check-label" for="gridCheck">
+										Recordar color
+  </etiqueta>
+								</div>
+							</div>
+							<div class="col-12">
+  <button type="submit" class="btn btn-primary">Enviar</button>
+							</div>
+  </formulario>
+						<% } %>
+			</principal>
+</cuerpo>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+	crossorigin="anónimo"></script>
+
+</.html>
